@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Frugal Foodie</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://bootswatch.com/4/superhero/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!--Firebase JS-->
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <!-- Game Logic -->
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!--Carousel division-->
+    <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+        </ol>
+    
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+                <div class="carousel-caption">
+                  <h1>Frugal Foodie</h1>
+                </div>
+            <img src="assets/images/burger.jpg" alt="burger" style="width:100%;">
+          </div>
+        
+        <div class="item">
+            <div class="carousel-caption">
+                <h1>Frugal Foodie</h1>
+            </div>
+            <img src="assets/images/pizza.jpg" alt="chicken" style="width:100%;">
+        </div>  
+    
+        <div class="item">
+            <div class="carousel-caption">
+                <h1>Frugal Foodie</h1>
+            </div>
+            <img src="assets/images/chicken.jpg" alt="chicken" style="width:100%;">
+        </div>
+
+        <div class="item">
+            <div class="carousel-caption">
+                <h1>Frugal Foodie</h1>
+            </div>
+            <img src="assets/images/crawfish.png" alt="seafood" style="width:100%;">
+        </div>
+
+          <div class="item">
+                <div class="carousel-caption">
+                    <h1>Frugal Foodie</h1>
+                </div>
+            <img src="assets/images/tacos.jpg" alt="tacos" style="width:100%;">
+          </div>
+        </div>
+      </div>
+    </div> 
+    <!--End Carousel division-->
+    <!--Input area of the page-->
+    <div class="container">
+        <div id ="formgroupcontainer">
+        <div class="form-group">
+            <div class="col-sm-10">
+                <input type="" class="form-control" id="formInput" name='geoInput' placeholder="Zip or Location">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-10">
+                <input type="" class="form-control" id="formFood" name='foodInput'placeholder="What are you craving?">
+            </div>
+        </div>
+        <div class="form-group">
+            <div><span class="glyphicons glyphicons-fast-food"></span></div>
+            <div class="col-sm-10">
+                <button id="submit" type="submit" data-toggle="popover" name='entrySubmit'class="btn btn-primary" val="">Find it!</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-10">
+
+                <label for="recentSearches"><svg height="32" class="octicon octicon-flame" viewBox="0 0 12 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path> </svg>      Popular Searches in Your Area</label>
+
+                <textarea class="form-control" rows="5" id="recentSearches"></textarea>
+            </div>
+        </div>
+        </div>
+        <!--End input division-->
+        <!--Div that holds our search results-->
+        <div class="searchresults">
+        </div>
+        <!--Div that holds our map-->
+        <div class="gmapresults">
+            <div id="map" style="width:100%;height:500px;background:yellow"></div>
+        </div>
+        <!--Button that will let user scroll to top-->
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    </div>
+    <!-- End Container -->
+    <script>
+      //Declare our lat and long
+      var publicLat = 0;
+      var publicLon = 0;
+        //Hide the map 
+        $("#map").hide();
+
+        //Set the listener to account for action when anchor is clicked
+        $("body").on("click", "a", function () {
+        $("#map").show();
+            publicLat = $(this).attr("lat");
+            publicLon = $(this).attr("lon");
+            myMap();
+        });
+        
+        function myMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(publicLat, publicLon),
+            zoom: 19,
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        }
+    </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJPE5hhPRTPYAyq5n6Y0vol3DRXffGwJk&callback=myMap"></script>
+</body>
+</html>
